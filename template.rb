@@ -7,7 +7,18 @@ gem_group :development do
   gem 'letter_opener'
 end
 
-environment 'config.generators{|g| g.test_framework :rspec, view_specs: false, helper_specs: false, controller_specs: false, routing_specs: false, request_specs: false}'
+environment %Q! 
+  config.generators do |g|
+    g.test_framework(
+      :rspec, 
+      view_specs: false, 
+      helper_specs: false, 
+      controller_specs: false, 
+      routing_specs: false, 
+      request_specs: false
+      )
+  end
+!
 
 after_bundle do
   git :init
